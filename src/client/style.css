@@ -91,12 +91,8 @@ body.scrollingDisabled {
   filter: blur(0) grayscale(0);
   margin-top: auto;
   margin-bottom: auto;
-  image-rendering: optimizeSpeed;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -o-crisp-edges;
-  image-rendering: pixelated;
-  -ms-interpolation-mode: nearest-neighbor;
+  object-fit: contain;
+  touch-action: none;
 }
 
 .game-canvas.active {
@@ -167,6 +163,10 @@ progress[value]::-webkit-progress-value {
   right: 12px;
   top: 12px;
   width: min(320px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  max-height: calc(100svh - 24px);
+  display: flex;
+  flex-direction: column;
   z-index: 15;
   border: 1px solid var(--panel-border);
   border-radius: 12px;
@@ -185,6 +185,7 @@ progress[value]::-webkit-progress-value {
   margin: 0;
   padding: 10px 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
 }
 
 .panel-header h2 {
@@ -211,6 +212,10 @@ progress[value]::-webkit-progress-value {
   flex-direction: column;
   gap: 8px;
   padding: 10px 12px 12px 12px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+  min-height: 0;
 }
 
 .panel-meta {
@@ -312,9 +317,14 @@ progress[value]::-webkit-progress-value {
   display: none;
 }
 
+.devvit-panel.collapsed {
+  max-height: none;
+}
+
 @media (max-width: 720px) {
   .devvit-panel {
-    top: auto;
-    bottom: 12px;
+    top: 12px;
+    bottom: auto;
+    max-height: min(60vh, calc(100svh - 24px));
   }
 }

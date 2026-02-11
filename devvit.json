@@ -20,15 +20,15 @@
   "menu": {
     "items": [
       {
-        "label": "Create a new post",
-        "description": "ya-ma-sua-lik-it",
+        "label": "Create Rift Relay Post",
+        "description": "Drop a Rift Relay arena into this subreddit",
         "location": "subreddit",
         "forUserType": "moderator",
         "endpoint": "/internal/menu/post-create"
       },
       {
-        "label": "Example form",
-        "description": "Show a simple form",
+        "label": "Rift Relay Settings",
+        "description": "Configure game settings",
         "location": "subreddit",
         "forUserType": "moderator",
         "endpoint": "/internal/menu/example-form"
@@ -44,6 +44,9 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch"
+  },
+  "marketingAssets": {
+    "icon": "assets/icon.png"
   },
   "dev": {
     "subreddit": "ya_ma_sua_lik_it_dev"

@@ -11,6 +11,7 @@
     "../test/**/*.ts",
     "../src/client/companion-panel.ts",
     "../src/client/devvit-api.ts",
+    "../src/client/game/**/*.ts",
     "../src/shared/api.ts"
   ],
   "exclude": [],
