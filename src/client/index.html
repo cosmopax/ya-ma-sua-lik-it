@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title>Rift Relay</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <canvas
+      class="game-canvas"
+      id="canvas"
+      oncontextmenu="event.preventDefault()"
+      tabindex="-1"
+    >
+    </canvas>
+    <div class="loading" id="loading">
+      <div class="spinner" id="spinner"></div>
+      <div class="status" id="status">Loading Game...</div>
+      <progress value="0" max="100" id="progress" hidden="1"></progress>
+    </div>
+    <aside class="devvit-panel collapsed" id="devvit-panel" aria-live="polite">
+      <header class="panel-header">
+        <h2>Rift Relay Ops</h2>
+        <button id="panel-toggle" type="button">Show</button>
+      </header>
+      <div class="panel-content">
+        <p class="panel-meta">User: <strong id="panel-user">-</strong></p>
+        <p class="panel-meta">Best: <strong id="panel-best">-</strong></p>
+        <p class="panel-meta">Level: <strong id="panel-profile-level">-</strong></p>
+        <p class="panel-meta">XP: <strong id="panel-profile-xp">-</strong></p>
+        <p class="panel-meta">
+          Currency: <strong id="panel-profile-currency">-</strong>
+        </p>
+        <p class="panel-meta">Streak: <strong id="panel-profile-streak">-</strong></p>
+        <p class="panel-status" id="panel-status" data-state="ok">Booting...</p>
+
+        <label class="panel-field" for="panel-score">
+          Score
+          <input id="panel-score" type="number" inputmode="numeric" />
+        </label>
+        <label class="panel-field" for="panel-survival-seconds">
+          Survival Seconds
+          <input id="panel-survival-seconds" type="number" inputmode="numeric" />
+        </label>
+        <div class="panel-actions">
+          <button id="panel-submit-score" type="button">Submit Score</button>
+          <button id="panel-refresh-lb" type="button">Refresh Board</button>
+        </div>
+
+        <label class="panel-field" for="panel-run-mode">
+          Run Mode
+          <select id="panel-run-mode">
+            <option value="normal">Normal</option>
+            <option value="daily">Daily Challenge</option>
+            <option value="weekly">Weekly Challenge</option>
+          </select>
+        </label>
+        <div class="panel-actions">
+          <button id="panel-start-run" type="button">Start Run</button>
+          <button id="panel-complete-run" type="button">Complete Run</button>
+        </div>
+        <p class="panel-meta" id="panel-run-ticket">Run: none</p>
+        <p class="panel-subtitle">Run Mutators</p>
+        <ul class="panel-leaderboard" id="panel-run-mutators"></ul>
+
+        <label class="panel-field" for="panel-level">
+          Checkpoint Level
+          <input id="panel-level" type="number" inputmode="numeric" />
+        </label>
+        <label class="panel-field" for="panel-note">
+          Checkpoint Note
+          <input id="panel-note" type="text" maxlength="100" />
+        </label>
+        <div class="panel-actions">
+          <button id="panel-save-state" type="button">Save</button>
+          <button id="panel-load-state" type="button">Load</button>
+        </div>
+
+        <p class="panel-subtitle">Quests</p>
+        <ul class="panel-leaderboard" id="panel-quests"></ul>
+        <p class="panel-subtitle">Active Challenges</p>
+        <ul class="panel-leaderboard" id="panel-challenges"></ul>
+        <p class="panel-subtitle">Perks</p>
+        <ul class="panel-leaderboard panel-perks" id="panel-perks"></ul>
+        <p class="panel-subtitle">Top Players</p>
+        <ul class="panel-leaderboard" id="panel-leaderboard"></ul>
+      </div>
+    </aside>
+    <script type="module" src="main.ts" defer></script>
+  </body>
+</html>
